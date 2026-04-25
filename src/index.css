@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design system for École de Musique de Saint-Gilles
+Musical colors: navy blue (elegance), gold/copper (instruments), bordeaux (dynamism)
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Base colors - Musical theme */
+    --background: 0 0% 100%;
+    --foreground: 220 84% 4.9%;
+
+    /* Card system */
+    --card: 0 0% 100%;
+    --card-foreground: 220 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 84% 4.9%;
+
+    /* Primary - Navy Blue (Musical elegance) */
+    --primary: 220 54% 18%;
+    --primary-foreground: 210 40% 98%;
+    --primary-light: 220 45% 28%;
+    --primary-dark: 220 65% 12%;
+
+    /* Secondary - Gold/Copper (Musical instruments) */
+    --secondary: 43 74% 66%;
+    --secondary-foreground: 220 54% 18%;
+    --secondary-light: 43 80% 76%;
+    --secondary-dark: 43 65% 56%;
+
+    /* Accent - Bordeaux (Dynamism, local touch) */
+    --accent: 345 63% 42%;
+    --accent-foreground: 210 40% 98%;
+    --accent-light: 345 55% 52%;
+    --accent-dark: 345 75% 32%;
+
+    /* Neutral system */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 16% 46%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 94%;
+    --ring: 220 54% 18%;
+
+    /* Musical gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 54% 18%), hsl(220 45% 28%));
+    --gradient-musical: linear-gradient(120deg, hsl(43 74% 66%), hsl(43 65% 56%));
+    --gradient-accent: linear-gradient(135deg, hsl(345 63% 42%), hsl(345 55% 52%));
+    --gradient-elegant: linear-gradient(180deg, hsl(220 54% 18%), hsl(220 65% 12%));
+
+    /* Shadows with musical colors */
+    --shadow-hero: 0 20px 40px -12px hsl(220 54% 18% / 0.25);
+    --shadow-card: 0 4px 6px -1px hsl(220 54% 18% / 0.1);
+    --shadow-musical: 0 10px 25px -5px hsl(43 74% 66% / 0.3);
+
+    /* Smooth transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 65% 12%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 54% 18%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 54% 18%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 43 74% 66%;
+    --primary-foreground: 220 54% 18%;
+    --primary-light: 43 80% 76%;
+    --primary-dark: 43 65% 56%;
+
+    --secondary: 220 45% 28%;
+    --secondary-foreground: 210 40% 98%;
+    --secondary-light: 220 35% 38%;
+    --secondary-dark: 220 55% 22%;
+
+    --accent: 345 63% 42%;
+    --accent-foreground: 210 40% 98%;
+    --accent-light: 345 55% 52%;
+    --accent-dark: 345 75% 32%;
+
+    --muted: 220 32% 20%;
+    --muted-foreground: 220 20% 65%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 32% 25%;
+    --input: 220 32% 25%;
+    --ring: 43 74% 66%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+  }
+
+  .font-heading {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  /* Musical animations */
+  .musical-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-musical {
+    background: var(--gradient-musical);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .gradient-elegant {
+    background: var(--gradient-elegant);
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom cursor - musical note */
+  body {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18V5l12-2v13'/%3E%3Ccircle cx='6' cy='18' r='3'/%3E%3Ccircle cx='18' cy='16' r='3'/%3E%3C/svg%3E"), auto;
+  }
+}
