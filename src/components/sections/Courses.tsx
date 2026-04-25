@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Music4, Mic, Music, Users, Baby, Clock, GraduationCap, Sparkles, Heart, Guitar } from 'lucide-react';
+import { Music4, Mic, Music, Users, Baby, Clock, GraduationCap, Sparkles, Heart, Guitar, Drum, Wind } from 'lucide-react';
 
 const Courses = () => {
   const disciplines = [
@@ -26,21 +26,21 @@ const Courses = () => {
       levels: ["Débutant", "Intermédiaire", "Confirmé"],
       objectives: ["Justesse et sonorité", "Technique d'archet", "Répertoire classique et actuel", "Musique d'ensemble"],
       benefits: "Développe l'oreille musicale, la patience et la sensibilité artistique.",
-      color: "bg-accent/10 text-accent"
+      color: "bg-amber-100/50 text-amber-900"
     },
     {
       icon: Mic,
       name: "Chant",
       slug: "chant",
       description: "Apprenez à poser votre voix, à respirer et à interpréter avec émotion. Le chant est accessible à tous, sans prérequis.",
-      age: "À partir de 10 ans",
+      age: "À partir de 6 ans",
       levels: ["Débutant", "Intermédiaire", "Confirmé"],
       objectives: ["Technique vocale et respiration", "Justesse et placement", "Interprétation et scène", "Répertoire personnalisé"],
       benefits: "Renforce la confiance en soi, la gestion du souffle et l'expression personnelle.",
       color: "bg-secondary/10 text-secondary-dark"
     },
     {
-      icon: Music, // Drum
+      icon: Drum,
       name: "Batterie",
       slug: "batterie",
       description: "Rythme, énergie et coordination : la batterie est l'instrument idéal pour canaliser son énergie et s'amuser en musique.",
@@ -48,7 +48,7 @@ const Courses = () => {
       levels: ["Débutant", "Intermédiaire", "Confirmé"],
       objectives: ["Indépendance des membres", "Lecture rythmique", "Styles variés (rock, funk, jazz)", "Jeu en groupe"],
       benefits: "Développe le sens du rythme, la coordination et la capacité d'écoute.",
-      color: "bg-primary/10 text-primary"
+      color: "bg-red-100/50 text-red-900"
     },
     {
       icon: Baby,
@@ -95,7 +95,7 @@ const Courses = () => {
       color: "bg-primary/10 text-primary"
     },
     {
-      icon: Music4,
+      icon: Wind,
       name: "Saxophone",
       slug: "saxophone",
       description: "Explorez le son chaleureux et expressif du saxophone. Jazz, classique ou variété : cet instrument s'adapte à tous les styles musicaux.",
@@ -103,10 +103,10 @@ const Courses = () => {
       levels: ["Débutant", "Intermédiaire", "Confirmé"],
       objectives: ["Embouchure et sonorité", "Lecture de partition", "Improvisation", "Répertoire varié"],
       benefits: "Développe le souffle, l'oreille musicale et l'expression personnelle.",
-      color: "bg-secondary/10 text-secondary-dark"
+      color: "bg-blue-100/50 text-blue-900"
     },
     {
-      icon: Music,
+      icon: Wind,
       name: "Flûte traversière",
       slug: "flute-traversiere",
       description: "Élégante et mélodieuse, la flûte traversière offre une palette sonore riche. Un instrument qui allie technique et sensibilité.",
@@ -114,7 +114,7 @@ const Courses = () => {
       levels: ["Débutant", "Intermédiaire", "Confirmé"],
       objectives: ["Technique de souffle", "Sonorité et justesse", "Répertoire classique et moderne", "Musique d'ensemble"],
       benefits: "Développe la maîtrise du souffle, la concentration et la finesse musicale.",
-      color: "bg-accent/10 text-accent"
+      color: "bg-cyan-100/50 text-cyan-900"
     },
     {
       icon: Music4,

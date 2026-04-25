@@ -19,6 +19,9 @@ const Footer = () => {
     'Cours de chant',
     'Cours de batterie',
     'Cours de guitare',
+    'Cours de saxophone',
+    'Cours de flûte',
+    'Ensemble vocal',
     'Éveil musical',
     'Formation musicale'
   ];

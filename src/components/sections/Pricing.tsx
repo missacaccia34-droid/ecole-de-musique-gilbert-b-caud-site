@@ -78,7 +78,7 @@ const Pricing = () => {
                 Adhésion annuelle
               </h3>
               <div className="text-4xl font-bold text-primary mb-2">30 €</div>
-              <p className="text-secondary-foreground">par famille</p>
+              <p className="text-secondary-foreground">adhésion annuelle</p>
             </CardContent>
           </Card>
         </div>
