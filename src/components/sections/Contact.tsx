@@ -64,7 +64,8 @@ const Contact = () => {
       toast({ title: "Message envoyé !", description: "Nous vous répondrons dans les plus brefs délais." });
     } catch (error) {
       console.error('Error submitting form:', error);
-      toast({ title: "Erreur", description: "Une erreur est survenue. Veuillez réessayer.", variant: "destructive" });
+      const errorMessage = error instanceof Error ? error.message : "Une erreur est survenue. Veuillez réessayer.";
+      toast({ title: "Erreur", description: errorMessage, variant: "destructive" });
     } finally {
       setIsSubmitting(false);
     }

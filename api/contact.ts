@@ -1,12 +1,27 @@
 const SCHOOL_EMAIL = 'ecolegilbertbecaud@gmail.com';
 
+async function readJsonBody(req: any) {
+  if (req.body) {
+    return typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+  }
+
+  const chunks = [];
+  for await (const chunk of req) {
+    chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
+  }
+
+  const rawBody = Buffer.concat(chunks).toString('utf8');
+  return rawBody ? JSON.parse(rawBody) : {};
+}
+
 export default async function handler(req: any, res: any) {
   if (req.method !== 'POST') {
     return res.status(405).json({ success: false, error: 'Méthode non autorisée' });
   }
 
   try {
-    const { firstName, lastName, email, phone, subject, message } = req.body || {};
+    const body = await readJsonBody(req);
+    const { firstName, lastName, email, phone, subject, message } = body;
 
     if (!firstName || !lastName || !email || !message) {
       return res.status(400).json({ success: false, error: 'Champs obligatoires manquants' });
@@ -57,12 +72,19 @@ ${message}
     if (!response.ok) {
       const errorData = await response.json().catch(() => null);
       console.error('Resend error:', errorData);
-      return res.status(500).json({ success: false, error: "Erreur lors de l'envoi de l'email" });
+      const resendMessage =
+        errorData?.message ||
+        errorData?.error?.message ||
+        errorData?.name ||
+        "Erreur lors de l'envoi de l'email";
+
+      return res.status(500).json({ success: false, error: resendMessage });
     }
 
     return res.status(200).json({ success: true });
   } catch (error) {
     console.error('Contact form error:', error);
-    return res.status(500).json({ success: false, error: 'Erreur serveur' });
+    const message = error instanceof Error ? error.message : 'Erreur serveur';
+    return res.status(500).json({ success: false, error: message });
   }
 }
