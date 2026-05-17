@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Music4, Mic, Music, Users, Baby, Clock, GraduationCap, Sparkles, Heart, Guitar, Drum, Wind } from 'lucide-react';
+import { Music4, Mic, Music, Users, Baby, Clock, GraduationCap, Sparkles, Heart, Guitar, Drum, Wind, ArrowRight } from 'lucide-react';
 
 const Courses = () => {
   const disciplines = [
@@ -129,6 +129,13 @@ const Courses = () => {
     }
   ];
 
+  const coursePageLinks: Record<string, string> = {
+    piano: '/cours-piano-saint-gilles',
+    chant: '/cours-chant-saint-gilles',
+    guitare: '/cours-guitare-saint-gilles',
+    'eveil-musical': '/eveil-musical-saint-gilles',
+  };
+
   return (
     <section id="cours" className="py-20">
       <div className="container mx-auto px-4">
@@ -158,7 +165,10 @@ const Courses = () => {
 
         {/* Disciplines Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {disciplines.map((discipline, index) => (
+          {disciplines.map((discipline, index) => {
+            const coursePageHref = coursePageLinks[discipline.slug];
+
+            return (
             <Card key={index} className="hover:shadow-musical transition-all duration-300 musical-hover flex flex-col">
               <CardHeader className="pb-4">
                 <div className={`w-16 h-16 rounded-full ${discipline.color} flex items-center justify-center mb-4`}>
@@ -215,14 +225,22 @@ const Courses = () => {
                 {/* CTA */}
                 <div className="mt-auto">
                   <Button variant="outline" className="w-full" asChild>
-                    <a href="#contact">
-                      Réserver un essai — {discipline.name}
+                    <a href={coursePageHref || "#contact"}>
+                      {coursePageHref ? (
+                        <>
+                          Découvrir le cours
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </>
+                      ) : (
+                        <>Réserver un essai — {discipline.name}</>
+                      )}
                     </a>
                   </Button>
                 </div>
               </CardContent>
             </Card>
-          ))}
+            );
+          })}
         </div>
 
         {/* Info Box */}
