@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Note de musique">
+  <rect width="64" height="64" rx="16" fill="#F2C94C"/>
+  <path
+    d="M42 13v27.7c0 5.8-4.7 10.3-11 10.3-5.3 0-9.5-3.1-9.5-7.4 0-4.4 4.2-7.5 9.5-7.5 2 0 3.8.4 5.4 1.3V19.6l-17.5 3.6v-6.5L42 13Z"
+    fill="#14274E"
+  />
+</svg>
